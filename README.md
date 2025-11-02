@@ -2,6 +2,10 @@
 
 ## 🏥 Enterprise-Grade Revenue Maximization System
 
+### 🌐 **[▶️ Launch Application](https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/)** ◀️
+
+> **Live Demo Available!** Your team can now access the fully functional application at the link above. No installation required.
+
 **Advanced Price Transparency** is a revolutionary 5-stage healthcare revenue optimization platform that leverages AI analysis and Federal Reserve integration to maximize healthcare revenue while ensuring transparency and compliance.
 
 ---
@@ -121,8 +125,29 @@ The deployed application includes:
 
 ## 🌐 **Deployment Information**
 
+### **🚀 Live Application**
+
+**Access the app here:** [https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/](https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/)
+
+### **Technical Details**
+
 - **Application Type**: Single-page application (SPA)
 - **File Size**: ~15KB (optimized for fast loading)
-- **Browser Support**: All modern browsers
-- **Mobile Ready**: Responsive design
-- **Performance**: A+ Lighthouse scor
+- **Browser Support**: All modern browsers (Chrome, Firefox, Safari, Edge)
+- **Mobile Ready**: Fully responsive design for tablets and smartphones
+- **Performance**: A+ Lighthouse score
+- **Hosting**: GitHub Pages (automatic deployment from main branch)
+
+### **Quick Start for Team**
+
+1. Simply visit the URL above in any modern web browser
+2. No installation or setup required
+3. Works on desktop, tablet, and mobile devices
+4. Bookmark the URL for easy access
+
+### **Deployment Status**
+
+- ✅ Automated deployment via GitHub Actions
+- ✅ SSL/HTTPS enabled
+- ✅ CDN-accelerated global delivery
+- ✅ Zero downtime updates
