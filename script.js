@@ -88,7 +88,9 @@ function updateRevenue() {
     const revenueElement = document.getElementById('current-revenue');
     if (revenueElement) {
         const currentValue = parseFloat(revenueElement.textContent.replace(/[$,]/g, ''));
-        const change = Math.floor(Math.random() * 50000) + 10000; // Random increase
+        // Small realistic changes (0.5% to 2% variations)
+        const changePercent = (Math.random() * 1.5 + 0.5) / 100;
+        const change = Math.floor(currentValue * changePercent);
         const newValue = currentValue + change;
         
         animateValueChange(revenueElement, newValue, true);
@@ -278,8 +280,28 @@ function showTooltip(element, text) {
     document.body.appendChild(tooltipElement);
     
     const rect = element.getBoundingClientRect();
-    tooltipElement.style.left = rect.left + rect.width / 2 - tooltipElement.offsetWidth / 2 + 'px';
-    tooltipElement.style.top = rect.top - tooltipElement.offsetHeight - 10 + window.pageYOffset + 'px';
+    const tooltipWidth = tooltipElement.offsetWidth;
+    const tooltipHeight = tooltipElement.offsetHeight;
+    
+    // Calculate position with boundary detection
+    let left = rect.left + rect.width / 2 - tooltipWidth / 2;
+    let top = rect.top - tooltipHeight - 10 + window.pageYOffset;
+    
+    // Check right boundary
+    if (left + tooltipWidth > window.innerWidth - 10) {
+        left = window.innerWidth - tooltipWidth - 10;
+    }
+    // Check left boundary
+    if (left < 10) {
+        left = 10;
+    }
+    // Check top boundary - if too close to top, show below element
+    if (rect.top - tooltipHeight - 10 < 0) {
+        top = rect.bottom + 10 + window.pageYOffset;
+    }
+    
+    tooltipElement.style.left = left + 'px';
+    tooltipElement.style.top = top + 'px';
 }
 
 function hideTooltip() {
@@ -331,14 +353,4 @@ if (window.performance && window.performance.timing) {
             }
         }, 0);
     });
-}
-
-// Export functions for potential testing
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        initializeApp,
-        updateTimestamp,
-        animateMetrics,
-        startRealtimeUpdates
-    };
 }
