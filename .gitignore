@@ -23,3 +23,5 @@ yarn-error.log*
 # Build artifacts (if any are added in future)
 dist/
 build/
+node_modules
+node_modules
