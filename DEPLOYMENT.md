@@ -6,7 +6,9 @@ Your Advanced Price Transparency application is now live and accessible to your 
 
 ### 📱 Access the Application
 
-**Live URL:** [https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/](https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/)
+**🌐 Main Dashboard:** [https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/](https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/)
+
+**🔐 Secure Login:** [https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/login.html](https://chriswilliams2020.github.io/Advance-Price-Transparency-for-Providers-and-Payers/login.html)
 
 ### ✅ What's Been Set Up
 
@@ -16,6 +18,13 @@ Your Advanced Price Transparency application is now live and accessible to your 
    - Enterprise analytics and charts
    - Fully responsive design (works on desktop, tablet, mobile)
    - Professional enterprise-grade UI
+
+2. **🔐 Biometric Authentication System**
+   - Multi-factor authentication (fingerprint, face ID, voice recognition)
+   - HIPAA-compliant security measures
+   - Practice account management
+   - Two-factor authentication (2FA)
+   - Secure session management
 
 2. **Automated Deployment**
    - GitHub Pages hosting (free, reliable, fast)
@@ -34,21 +43,28 @@ Your Advanced Price Transparency application is now live and accessible to your 
 
 ### For Your Team Members
 
-1. **Access**: Simply visit the URL above in any modern web browser
-2. **No Setup Required**: Zero installation needed - works immediately
-3. **Cross-Platform**: Works on:
+1. **Main App Access**: Visit the main dashboard URL for the public demo
+2. **Secure Access**: Use the login URL for authenticated access with biometric security
+3. **No Setup Required**: Zero installation needed - works immediately
+4. **Cross-Platform**: Works on:
    - Desktop computers (Windows, Mac, Linux)
    - Tablets (iPad, Android tablets)
    - Smartphones (iOS, Android)
-4. **Bookmark**: Save the URL for quick access
+5. **Bookmark Both URLs**: Save main dashboard and secure login for quick access
 
 ### Navigation
 
-The app includes four main sections accessible via the top navigation:
+**Main Application:**
 - **Dashboard**: Real-time revenue metrics and KPIs
 - **Process**: 5-stage optimization workflow
 - **Analytics**: Charts and performance data
-- **About**: Security, compliance, and technical specs
+- **🔐 Secure Login**: Link to biometric authentication system
+
+**Authentication System:**
+- **Practice Selection**: Choose or create practice accounts
+- **Biometric Login**: Fingerprint, Face ID, Voice recognition
+- **2FA Verification**: Additional security layer
+- **Account Management**: HIPAA-compliant user management
 
 ## 🔄 Making Updates
 
@@ -73,13 +89,24 @@ You can also trigger deployment manually:
 ### Files Structure
 ```
 /
-├── index.html          # Main application page
-├── styles.css          # Professional styling
-├── script.js           # Interactive features
+├── index.html          # Main application dashboard
+├── login.html          # Biometric authentication system
+├── styles.css          # Main application styling
+├── script.js           # Dashboard interactive features
+├── assets/             # Images, icons, and media files
+├── src/                # Organized source code
+│   ├── js/             # JavaScript modules
+│   │   ├── biometric-auth.js    # Authentication engine
+│   │   ├── auth-ui.js           # Login interface controller
+│   │   └── dashboard.js         # Dashboard functionality
+│   └── css/            # Component-specific styling
+│       ├── auth.css             # Authentication interface
+│       └── dashboard.css        # Dashboard components
+├── data/               # Sample data and configuration
+├── docs/               # API documentation and guides
+├── tests/              # Testing framework
 ├── README.md           # Project documentation
-└── .github/
-    └── workflows/
-        └── deploy.yml  # Deployment automation
+└── DEPLOYMENT.md       # This deployment guide
 ```
 
 ### Performance
@@ -96,10 +123,29 @@ You can also trigger deployment manually:
 
 ## 🔒 Security & Privacy
 
+### Standard Security
 - **HTTPS Enabled**: All traffic is encrypted
 - **No Data Collection**: Static site, no analytics or tracking
 - **No Backend**: Runs entirely in the browser
 - **Open Source**: Code is visible in GitHub repository
+
+### 🔐 Biometric Authentication Features
+- **HIPAA Compliance**: Healthcare-grade data protection
+- **Multi-Factor Authentication**: 
+  - 👆 Fingerprint recognition (WebAuthn)
+  - 👤 Face recognition (camera-based)
+  - 🎤 Voice recognition (speech patterns)
+  - 📱 2FA codes (TOTP/SMS/Email)
+- **Practice Account Management**: Individual secure accounts
+- **256-bit Encryption**: Enterprise-grade data protection
+- **Session Management**: 8-hour secure sessions
+- **Audit Logging**: Complete access tracking
+
+### Testing the Authentication System
+1. Visit the secure login URL
+2. Select "Create New Practice Account" to test account creation
+3. Try different biometric methods (requires compatible device)
+4. Use demo 2FA codes: `123456`, `789012`, or `456789`
 
 ## 📞 Support
 
