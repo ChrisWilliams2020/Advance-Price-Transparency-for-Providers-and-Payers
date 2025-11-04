@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Login - Advanced Price Transparency</title>
+    <link rel="stylesheet" href="../src/css/auth.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <!-- Header -->
+        <div class="auth-header">
+            <div class="logo-container">
+                <div class="logo-icon">🏥</div>
+                <h1>Advanced Price Transparency</h1>
+                <p class="tagline">Secure Healthcare Revenue Platform</p>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-card">
+            <div class="card-header">
+                <h2>Secure Login</h2>
+                <p>HIPAA-Compliant Multi-Factor Authentication</p>
+                <div class="security-indicators">
+                    <span class="security-badge">🔒 HIPAA</span>
+                    <span class="security-badge">🛡️ SOC2</span>
+                    <span class="security-badge">🔐 256-bit</span>
+                </div>
+            </div>
+
+            <!-- Practice Account Selection -->
+            <div class="practice-selection">
+                <label for="practice-select">Select Practice Account</label>
+                <select id="practice-select" class="practice-dropdown">
+                    <option value="">Choose your practice...</option>
+                    <option value="riverside-medical">Riverside Medical Center</option>
+                    <option value="downtown-clinic">Downtown Healthcare Clinic</option>
+                    <option value="metro-hospital">Metro General Hospital</option>
+                    <option value="create-new">+ Create New Practice Account</option>
+                </select>
+            </div>
+
+            <!-- Authentication Methods -->
+            <div class="auth-methods">
+                <h3>Choose Authentication Method</h3>
+                
+                <!-- Biometric Options -->
+                <div class="biometric-grid">
+                    <button class="auth-method-btn fingerprint-auth-btn" id="fingerprint-btn">
+                        <div class="auth-icon">👆</div>
+                        <span>Fingerprint</span>
+                        <div class="status-indicator" id="fingerprint-status">Ready</div>
+                    </button>
+
+                    <button class="auth-method-btn face-auth-btn" id="face-btn">
+                        <div class="auth-icon">👤</div>
+                        <span>Face ID</span>
+                        <div class="status-indicator" id="face-status">Ready</div>
+                    </button>
+
+                    <button class="auth-method-btn voice-auth-btn" id="voice-btn">
+                        <div class="auth-icon">🎤</div>
+                        <span>Voice ID</span>
+                        <div class="status-indicator" id="voice-status">Ready</div>
+                    </button>
+
+                    <button class="auth-method-btn password-auth-btn" id="password-btn">
+                        <div class="auth-icon">🔑</div>
+                        <span>Password</span>
+                        <div class="status-indicator">Available</div>
+                    </button>
+                </div>
+
+                <!-- Traditional Login (Fallback) -->
+                <div class="traditional-auth" id="traditional-auth" style="display: none;">
+                    <div class="form-group">
+                        <label for="username">Username/Email</label>
+                        <input type="email" id="username" placeholder="admin@practice.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter secure password" required>
+                    </div>
+                </div>
+
+                <!-- Two-Factor Authentication -->
+                <div class="two-factor-section" id="two-factor-section" style="display: none;">
+                    <h4>🔐 Two-Factor Authentication</h4>
+                    <p>Enter the 6-digit code from your authenticator app</p>
+                    <div class="form-group">
+                        <input type="text" id="tfa-code" placeholder="000000" maxlength="6" class="tfa-input">
+                    </div>
+                    <div class="tfa-options">
+                        <button type="button" class="tfa-option-btn" id="send-sms">📱 Send SMS</button>
+                        <button type="button" class="tfa-option-btn" id="send-email">📧 Send Email</button>
+                    </div>
+                </div>
+
+                <!-- Voice Recognition Instructions -->
+                <div class="voice-instructions" id="voice-instructions" style="display: none;">
+                    <h4>🎤 Voice Authentication</h4>
+                    <p>Please say the following passphrase clearly:</p>
+                    <div class="passphrase">"Advanced healthcare price transparency access"</div>
+                    <div class="voice-status">
+                        <div class="voice-wave">🔊</div>
+                        <span id="voice-feedback">Click the microphone button to start</span>
+                    </div>
+                </div>
+
+                <!-- Face Recognition Instructions -->
+                <div class="face-instructions" id="face-instructions" style="display: none;">
+                    <h4>👤 Face Recognition</h4>
+                    <p>Position your face in the center of the camera frame</p>
+                    <div class="camera-preview">
+                        <video id="face-video" autoplay></video>
+                        <div class="face-outline"></div>
+                    </div>
+                    <div class="face-status" id="face-feedback">Click Face ID button to start</div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="auth-actions">
+                <button class="primary-btn" id="login-btn" disabled>
+                    <span class="btn-text">Authenticate</span>
+                    <div class="btn-loader" style="display: none;">🔄</div>
+                </button>
+                
+                <div class="auth-links">
+                    <a href="#" id="forgot-password">Forgot Password?</a>
+                    <a href="#" id="setup-biometric">Setup Biometrics</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Practice Account Modal -->
+        <div class="modal" id="create-practice-modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Create New Practice Account</h3>
+                    <button class="close-btn" id="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="practice-form">
+                        <div class="form-group">
+                            <label for="practice-name">Practice Name *</label>
+                            <input type="text" id="practice-name" required placeholder="e.g., Riverside Medical Center">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="practice-type">Practice Type *</label>
+                            <select id="practice-type" required>
+                                <option value="">Select type...</option>
+                                <option value="hospital">Hospital</option>
+                                <option value="clinic">Clinic</option>
+                                <option value="group_practice">Group Practice</option>
+                                <option value="specialty">Specialty Practice</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="practice-npi">NPI Number *</label>
+                            <input type="text" id="practice-npi" required placeholder="1234567890" maxlength="10">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="practice-address">Address</label>
+                            <textarea id="practice-address" placeholder="Practice address"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="admin-email">Administrator Email *</label>
+                            <input type="email" id="admin-email" required placeholder="admin@practice.com">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="secondary-btn" id="cancel-practice">Cancel</button>
+                    <button class="primary-btn" id="create-practice">Create Account</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Authentication Status -->
+        <div class="auth-status" id="auth-status" style="display: none;">
+            <div class="status-content">
+                <div class="status-icon">⏳</div>
+                <div class="status-message">Authenticating...</div>
+                <div class="status-progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="auth-footer">
+            <div class="compliance-info">
+                <p>🔒 Your data is protected by enterprise-grade encryption</p>
+                <div class="compliance-badges">
+                    <span>HIPAA Compliant</span>
+                    <span>SOC2 Certified</span>
+                    <span>GDPR Ready</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biometric Support Detection -->
+    <div id="biometric-auth-container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="../src/js/biometric-auth.js"></script>
+    <script type="module" src="../src/js/auth-ui.js"></script>
+    
+    <script>
+        // Initialize authentication system when page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🚀 Initializing Healthcare Authentication System');
+            
+            try {
+                // Import and initialize biometric authentication
+                const { BiometricAuth } = await import('../src/js/biometric-auth.js');
+                window.biometricAuth = new BiometricAuth();
+                
+                // Initialize UI handlers
+                const { AuthUI } = await import('../src/js/auth-ui.js');
+                window.authUI = new AuthUI(window.biometricAuth);
+                
+                console.log('✅ Authentication system ready');
+            } catch (error) {
+                console.error('❌ Failed to initialize authentication:', error);
+                // Fallback to password-only authentication
+                document.getElementById('traditional-auth').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

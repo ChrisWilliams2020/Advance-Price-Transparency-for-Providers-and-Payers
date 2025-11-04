@@ -1,0 +1,116 @@
+{
+  "payer_contracts": [
+    {
+      "id": "ct_001",
+      "payer_name": "Blue Cross Blue Shield",
+      "contract_type": "Commercial",
+      "effective_date": "2024-01-01",
+      "expiration_date": "2026-12-31",
+      "total_value": 1250000,
+      "services": [
+        {
+          "code": "99213",
+          "description": "Office visit, established patient",
+          "current_rate": 125.00,
+          "market_rate": 142.00,
+          "optimization_potential": 17.00
+        },
+        {
+          "code": "99214",
+          "description": "Office visit, established patient, complex",
+          "current_rate": 185.00,
+          "market_rate": 205.00,
+          "optimization_potential": 20.00
+        }
+      ],
+      "status": "active",
+      "negotiation_priority": "high"
+    },
+    {
+      "id": "ct_002",
+      "payer_name": "Aetna",
+      "contract_type": "Commercial",
+      "effective_date": "2024-06-01",
+      "expiration_date": "2027-05-31",
+      "total_value": 890000,
+      "services": [
+        {
+          "code": "99213",
+          "description": "Office visit, established patient",
+          "current_rate": 138.00,
+          "market_rate": 142.00,
+          "optimization_potential": 4.00
+        },
+        {
+          "code": "99214",
+          "description": "Office visit, established patient, complex",
+          "current_rate": 198.00,
+          "market_rate": 205.00,
+          "optimization_potential": 7.00
+        }
+      ],
+      "status": "under_review",
+      "negotiation_priority": "medium"
+    },
+    {
+      "id": "ct_003",
+      "payer_name": "Medicare",
+      "contract_type": "Government",
+      "effective_date": "2024-01-01",
+      "expiration_date": "2024-12-31",
+      "total_value": 2100000,
+      "services": [
+        {
+          "code": "99213",
+          "description": "Office visit, established patient",
+          "current_rate": 89.45,
+          "market_rate": 89.45,
+          "optimization_potential": 0.00
+        },
+        {
+          "code": "99214",
+          "description": "Office visit, established patient, complex",
+          "current_rate": 134.12,
+          "market_rate": 134.12,
+          "optimization_potential": 0.00
+        }
+      ],
+      "status": "active",
+      "negotiation_priority": "low"
+    }
+  ],
+  "market_benchmarks": {
+    "regional_averages": {
+      "northeast": {
+        "99213": 145.00,
+        "99214": 210.00
+      },
+      "southeast": {
+        "99213": 135.00,
+        "99214": 195.00
+      },
+      "midwest": {
+        "99213": 128.00,
+        "99214": 185.00
+      },
+      "west": {
+        "99213": 155.00,
+        "99214": 225.00
+      }
+    },
+    "payer_type_averages": {
+      "commercial": {
+        "99213": 142.00,
+        "99214": 205.00
+      },
+      "medicare_advantage": {
+        "99213": 95.00,
+        "99214": 145.00
+      },
+      "medicaid": {
+        "99213": 75.00,
+        "99214": 115.00
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "dashboard_metrics": {
+    "current_revenue": 2847500,
+    "active_negotiations": 12,
+    "total_contracts": 247,
+    "total_savings": 2340000,
+    "last_updated": "2025-11-04T10:30:00Z"
+  },
+  "performance_indicators": {
+    "revenue_increase_percent": 47,
+    "contract_optimization_rate": 94,
+    "system_uptime": 99.7,
+    "average_negotiation_time_days": 14
+  },
+  "recent_activities": [
+    {
+      "id": 1,
+      "type": "contract_analysis",
+      "description": "AI analysis completed for Aetna contract renewal",
+      "timestamp": "2025-11-04T09:45:00Z",
+      "status": "completed",
+      "value": 125000
+    },
+    {
+      "id": 2,
+      "type": "negotiation",
+      "description": "Automated negotiation initiated with Blue Cross Blue Shield",
+      "timestamp": "2025-11-04T08:30:00Z",
+      "status": "active",
+      "value": 340000
+    },
+    {
+      "id": 3,
+      "type": "optimization",
+      "description": "Revenue optimization recommendations generated",
+      "timestamp": "2025-11-04T07:15:00Z",
+      "status": "pending_review",
+      "value": 89000
+    }
+  ],
+  "federal_reserve_data": {
+    "inflation_rate": 3.2,
+    "healthcare_price_index": 108.7,
+    "regional_adjustment_factor": 1.15,
+    "last_updated": "2025-11-01T00:00:00Z"
+  }
+}

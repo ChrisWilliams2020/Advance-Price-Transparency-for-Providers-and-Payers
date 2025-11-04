@@ -1,0 +1,204 @@
+{
+  "security_configuration": {
+    "encryption": {
+      "algorithm": "AES-256-GCM",
+      "key_rotation_days": 90,
+      "data_at_rest": true,
+      "data_in_transit": true
+    },
+    "session_management": {
+      "timeout_hours": 8,
+      "max_concurrent_sessions": 3,
+      "remember_device_days": 30
+    },
+    "biometric_settings": {
+      "fingerprint": {
+        "enabled": true,
+        "fallback_attempts": 3,
+        "enrollment_required": false
+      },
+      "face_recognition": {
+        "enabled": true,
+        "confidence_threshold": 0.85,
+        "liveness_detection": true
+      },
+      "voice_recognition": {
+        "enabled": true,
+        "passphrase_required": true,
+        "noise_cancellation": true
+      }
+    },
+    "two_factor_auth": {
+      "required": true,
+      "methods": ["totp", "sms", "email"],
+      "backup_codes": 10,
+      "grace_period_hours": 24
+    },
+    "compliance": {
+      "hipaa_compliance": true,
+      "audit_logging": true,
+      "data_retention_years": 7,
+      "breach_notification": true
+    }
+  },
+  "practice_account_templates": [
+    {
+      "id": "hospital",
+      "name": "Hospital System",
+      "description": "Large healthcare facility with multiple departments",
+      "required_fields": ["name", "npi", "address", "tax_id"],
+      "features": [
+        "multi_department_support",
+        "advanced_analytics",
+        "integration_apis",
+        "custom_reporting"
+      ],
+      "security_level": "enterprise",
+      "user_roles": ["admin", "physician", "billing", "compliance"]
+    },
+    {
+      "id": "clinic",
+      "name": "Medical Clinic",
+      "description": "Outpatient care facility",
+      "required_fields": ["name", "npi", "address"],
+      "features": [
+        "basic_analytics",
+        "standard_reporting",
+        "patient_portal"
+      ],
+      "security_level": "standard",
+      "user_roles": ["admin", "physician", "staff"]
+    },
+    {
+      "id": "group_practice",
+      "name": "Group Practice",
+      "description": "Multi-physician practice",
+      "required_fields": ["name", "npi", "address", "group_size"],
+      "features": [
+        "provider_management",
+        "revenue_sharing",
+        "group_analytics"
+      ],
+      "security_level": "enhanced",
+      "user_roles": ["admin", "physician", "billing", "manager"]
+    },
+    {
+      "id": "specialty",
+      "name": "Specialty Practice",
+      "description": "Specialized medical practice",
+      "required_fields": ["name", "npi", "specialty", "address"],
+      "features": [
+        "specialty_metrics",
+        "procedure_tracking",
+        "referral_management"
+      ],
+      "security_level": "standard",
+      "user_roles": ["admin", "physician", "coordinator"]
+    }
+  ],
+  "sample_practice_accounts": [
+    {
+      "id": "riverside-medical",
+      "name": "Riverside Medical Center",
+      "type": "hospital",
+      "npi": "1234567890",
+      "address": "123 Healthcare Drive, Riverside, CA 92501",
+      "administrators": [
+        {
+          "name": "Dr. Sarah Johnson",
+          "email": "sjohnson@riverside-med.com",
+          "role": "chief_medical_officer"
+        },
+        {
+          "name": "Mike Chen",
+          "email": "mchen@riverside-med.com",
+          "role": "system_administrator"
+        }
+      ],
+      "departments": [
+        "Emergency Medicine",
+        "Internal Medicine",
+        "Surgery",
+        "Pediatrics",
+        "Radiology"
+      ],
+      "created_date": "2024-01-15",
+      "status": "active",
+      "security_level": "enterprise"
+    },
+    {
+      "id": "downtown-clinic",
+      "name": "Downtown Healthcare Clinic",
+      "type": "clinic",
+      "npi": "0987654321",
+      "address": "456 Main Street, Downtown, NY 10001",
+      "administrators": [
+        {
+          "name": "Dr. Maria Rodriguez",
+          "email": "mrodriguez@downtown-clinic.com",
+          "role": "medical_director"
+        }
+      ],
+      "services": [
+        "Primary Care",
+        "Urgent Care",
+        "Preventive Medicine"
+      ],
+      "created_date": "2024-03-20",
+      "status": "active",
+      "security_level": "standard"
+    },
+    {
+      "id": "metro-hospital",
+      "name": "Metro General Hospital",
+      "type": "hospital",
+      "npi": "1122334455",
+      "address": "789 Medical Plaza, Metro City, TX 75001",
+      "administrators": [
+        {
+          "name": "Dr. James Wilson",
+          "email": "jwilson@metro-general.com",
+          "role": "chief_executive_officer"
+        },
+        {
+          "name": "Lisa Thompson",
+          "email": "lthompson@metro-general.com",
+          "role": "chief_financial_officer"
+        }
+      ],
+      "beds": 250,
+      "employees": 850,
+      "created_date": "2023-11-10",
+      "status": "active",
+      "security_level": "enterprise"
+    }
+  ],
+  "authentication_methods": {
+    "fingerprint": {
+      "supported_devices": ["Touch ID", "Windows Hello", "Android Fingerprint"],
+      "enrollment_steps": [
+        "Enable device biometrics",
+        "Register with healthcare platform",
+        "Verify identity with administrator",
+        "Complete security training"
+      ]
+    },
+    "face_recognition": {
+      "supported_devices": ["Face ID", "Windows Hello Face", "WebRTC Camera"],
+      "requirements": [
+        "Front-facing camera",
+        "Adequate lighting",
+        "Stable internet connection"
+      ]
+    },
+    "voice_recognition": {
+      "supported_devices": ["Any microphone-enabled device"],
+      "passphrase": "Advanced healthcare price transparency access",
+      "requirements": [
+        "Clear speech",
+        "Quiet environment",
+        "Microphone permissions"
+      ]
+    }
+  }
+}
