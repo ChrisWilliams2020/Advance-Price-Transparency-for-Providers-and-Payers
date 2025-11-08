@@ -10,8 +10,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // This pattern matches static assets in Next.js public folder
-        source: '/:path*\.(js|css|png|jpg|jpeg|gif|ico|svg)$',
+        source: '/:path*',
         headers: [
           {
             key: 'Cache-Control',
