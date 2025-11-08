@@ -1,12 +1,15 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Check, BarChart3, ShieldCheck, Mic, Cpu, DollarSign, Activity, ArrowRight, Building2, Lock, Server } from 'lucide-react'
 
 export default function HomePage() {
+  const router = useRouter();
+  const [showDemoModal, setShowDemoModal] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Navigation */}
@@ -19,11 +22,11 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="ghost">Features</Button>
-              <Button variant="ghost">Pricing</Button>
-              <Button variant="ghost">About</Button>
-              <Button variant="outline">Login</Button>
-              <Button>Sign Up</Button>
+              <Button variant="ghost" onClick={() => router.push('/features')}>Features</Button>
+              <Button variant="ghost" onClick={() => router.push('/pricing')}>Pricing</Button>
+              <Button variant="ghost" onClick={() => router.push('/about')}>About</Button>
+              <Button variant="outline" onClick={() => router.push('/login')}>Login</Button>
+              <Button onClick={() => router.push('/signup')}>Sign Up</Button>
             </div>
           </div>
         </div>
@@ -43,10 +46,10 @@ export default function HomePage() {
               real-time pricing, and seamless integration for both healthcare providers and payers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={() => router.push('/provider')}>
+                Get Started for Providers <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" onClick={() => setShowDemoModal(true)}>
                 Watch Demo
               </Button>
             </div>
@@ -177,7 +180,7 @@ export default function HomePage() {
                   <Check className="h-5 w-5 text-green-500 mr-3" />
                   <span>Automated billing transparency</span>
                 </div>
-                <Button className="w-full mt-6">Get Started for Providers</Button>
+                <Button className="w-full mt-6" onClick={() => router.push('/provider')}>Get Started for Providers</Button>
               </CardContent>
             </Card>
 
@@ -206,9 +209,20 @@ export default function HomePage() {
                   <Check className="h-5 w-5 text-green-500 mr-3" />
                   <span>Fraud detection algorithms</span>
                 </div>
-                <Button className="w-full mt-6 bg-green-600 hover:bg-green-700">
+                <Button className="w-full mt-6 bg-green-600 hover:bg-green-700" onClick={() => router.push('/payer')}>
                   Get Started for Payers
                 </Button>
+      {/* Demo Modal */}
+      {showDemoModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full relative">
+            <button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700" onClick={() => setShowDemoModal(false)}>&times;</button>
+            <h2 className="text-2xl font-bold mb-4">Platform Demo</h2>
+            <p className="mb-4">This is a placeholder for your demo video or interactive walkthrough. Replace this with an embedded video or custom content.</p>
+            <Button onClick={() => setShowDemoModal(false)}>Close</Button>
+          </div>
+        </div>
+      )}
               </CardContent>
             </Card>
           </div>
